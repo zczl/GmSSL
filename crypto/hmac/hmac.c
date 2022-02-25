@@ -33,6 +33,7 @@ int HMAC_Init_ex(HMAC_CTX *ctx, const void *key, int len,
     } else {
         return 0;
     }
+    sm3_hard = 0;
 
     if (key != NULL) {
         reset = 1;
@@ -102,7 +103,7 @@ int HMAC_Final(HMAC_CTX *ctx, unsigned char *md, unsigned int *len)
 
     if (!ctx->md)
         goto err;
-
+    sm3_hard = 1;
     if (!EVP_DigestFinal_ex(ctx->md_ctx, buf, &i))
         goto err;
     if (!EVP_MD_CTX_copy_ex(ctx->md_ctx, ctx->o_ctx))

@@ -259,6 +259,15 @@ typedef int (*SDF_InternalPrivateKeyOperation_RSA_FuncPtr)(
 	unsigned char *pucDataOutput,
 	unsigned int *puiOutputLength);
 
+
+typedef int (*SDF_ExternalSign_ECC_FuncPtr)(		
+		void* hSessionHandle,
+		unsigned int uiAlgID,
+		ECCrefPrivateKey *pucPrivateKey,
+		unsigned char *pucData,
+		unsigned int uiDataLength,
+		ECCSignature *pucSignature);
+
 typedef int (*SDF_ExternalVerify_ECC_FuncPtr)(
 	void *hSessionHandle,
 	unsigned int uiAlgID,
@@ -420,6 +429,7 @@ typedef struct sdf_method_st {
 	SDF_ExternalPublicKeyOperation_RSA_FuncPtr ExternalPublicKeyOperation_RSA;
 	SDF_InternalPublicKeyOperation_RSA_FuncPtr InternalPublicKeyOperation_RSA;
 	SDF_InternalPrivateKeyOperation_RSA_FuncPtr InternalPrivateKeyOperation_RSA;
+	SDF_ExternalSign_ECC_FuncPtr ExternalSign_ECC;	
 	SDF_ExternalVerify_ECC_FuncPtr ExternalVerify_ECC;
 	SDF_InternalSign_ECC_FuncPtr InternalSign_ECC;
 	SDF_InternalVerify_ECC_FuncPtr InternalVerify_ECC;

@@ -1,0 +1,44 @@
+./config -d enable-sdfeng --prefix=/usr/local
+make 
+sudo make install
+make update
+
+sudo make install_engines //update so
+sudo make install_dev    
+
+
+
+sudo gmssl s_server -accept 443 -key SS.key.pem -cert SS.cert.pem  -dkey SE.key.pem -dcert SE.cert.pem -CAfile CA.cert.pem  -gmtls -engine sdf
+
+
+sudo gmssl s_client -connect 127.0.0.1:443 -key CS.key.pem -cert CS.cert.pem -dkey CE.key.pem -dcert CE.cert.pem -CAfile CA.cert.pem  -gmtls -engine sdf
+
+
+sudo gmssl sdf -lib ./libsdf.so -printdevinfo
+
+
+sudo gmssl s_server -accept 443 -key SS.key.pem -cert SS.cert.pem  -dkey SE.key.pem -dcert SE.cert.pem -CAfile CA.cert.pem  -gmtls 
+
+
+sudo gmssl s_client -connect 127.0.0.1:443 -key CS.key.pem -cert CS.cert.pem -dkey CE.key.pem -dcert CE.cert.pem -CAfile CA.cert.pem  -gmtls 
+
+
+
+=A27BB3A70913F445405543C9AB6E52050248467B7DBAFA92B21499960B80107F
+
+
+https://www.dazhuanlan.com/o7o7/topics/1453137
+
+
+
+
+
+
+140630255058944:error:1409441B:SSL routines:ssl3_read_bytes:tlsv1 alert decrypt error:ssl/record/rec_layer_s3.c:1385:SSL alert number 51
+
+crypto/sm2/sm2_sign.c 510: sm2_do_verify
+140185419423744:error:141C907B:SSL routines:gmtls_process_ske_sm2:bad signature:ssl/statem/statem_gmtls.c:899
+
+
+添加权限
+https://blog.csdn.net/u010947832/article/details/119052453

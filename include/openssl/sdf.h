@@ -124,7 +124,7 @@ typedef struct ECCCipher_st {
 	unsigned char y[ECCref_MAX_LEN];
 	unsigned char M[32];
 	unsigned int L;
-	unsigned char C[1];
+	unsigned char C[4096];
 } ECCCipher;
 
 typedef struct ECCSignature_st {
@@ -345,6 +345,14 @@ int SDF_InternalPrivateKeyOperation_RSA(
 	unsigned char *pucDataOutput,
 	unsigned int *puiOutputLength);
 
+int SDF_ExternalSign_ECC(
+		void* hSessionHandle,
+		unsigned int uiAlgID,
+		ECCrefPrivateKey *pucPrivateKey,
+		unsigned char *pucData,
+		unsigned int uiDataLength,
+		ECCSignature *pucSignature);
+
 int SDF_ExternalVerify_ECC(
 	void *hSessionHandle,
 	unsigned int uiAlgID,
@@ -374,6 +382,13 @@ int SDF_ExternalEncrypt_ECC(
 	unsigned char *pucData,
 	unsigned int uiDataLength,
 	ECCCipher *pucEncData);
+int SDF_ExternalDecrypt_ECC(	
+	void* hSessionHandle,
+	unsigned int uiAlgID,
+	ECCrefPrivateKey *pucPrivateKey,
+	ECCCipher *pucEncData,
+	unsigned char *pucData,
+	unsigned int *puiDataLength);
 
 int SDF_InternalEncrypt_ECC(
 	void *hSessionHandle,

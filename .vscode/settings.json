@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "iosfwd": "cpp",
+        "string": "c",
+        "array": "c",
+        "istream": "c",
+        "ostream": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "errno.h": "c",
+        "engine.h": "c",
+        "sdf.h": "c",
+        "ssl_locl.h": "c",
+        "ssl.h": "c",
+        "e_os2.h": "c",
+        "err.h": "c",
+        "sm2.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

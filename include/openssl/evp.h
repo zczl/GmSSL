@@ -108,6 +108,8 @@
 extern "C" {
 #endif
 
+extern unsigned char sm3_hard;
+
 # define EVP_PKEY_MO_SIGN        0x0001
 # define EVP_PKEY_MO_VERIFY      0x0002
 # define EVP_PKEY_MO_ENCRYPT     0x0004

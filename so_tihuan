@@ -1,0 +1,2 @@
+sudo cp libcrypto.so.1.1  /usr/local/lib/
+sudo cp libssl.so.1.1  /usr/local/lib/

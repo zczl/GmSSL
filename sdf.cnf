@@ -1,0 +1,15 @@
+# conf file for gmssl sdf engine
+openssl_conf = openssl_init
+
+[openssl_init]
+engines = engine_section
+
+[engine_section]
+sdf = sdf_section
+
+[sdf_section]
+engine_id = sdf
+SO_PATH =  usr/local/lib/engines-1.1/libsdf.so
+VENDOR = sansec
+OPEN_DEV = 
+init = 1

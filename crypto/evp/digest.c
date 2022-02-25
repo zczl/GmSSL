@@ -20,6 +20,8 @@
 # include <openssl/sm2.h>
 #endif
 
+unsigned char sm3_hard = 1;
+
 /* This call frees resources associated with the context */
 int EVP_MD_CTX_reset(EVP_MD_CTX *ctx)
 {
@@ -90,7 +92,14 @@ int EVP_DigestInit_ex(EVP_MD_CTX *ctx, const EVP_MD *type, ENGINE *impl)
             }
         } else {
             /* Ask if an ENGINE is reserved for this job */
-            impl = ENGINE_get_digest_engine(type->type);
+            if(sm3_hard)
+            {
+                impl =  ENGINE_get_digest_engine(type->type);
+            }
+            else
+            {
+                impl = NULL;
+            }
         }
         if (impl != NULL) {
             /* There's an ENGINE for this job ... (apparently) */

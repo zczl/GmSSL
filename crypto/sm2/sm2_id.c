@@ -249,7 +249,7 @@ int SM2_compute_id_digest(const EVP_MD *md, const char *id, size_t idlen,
 	idbits[1] = (idlen * 8) % 256;
 
 	len = EVP_MD_size(md);
-
+	sm3_hard = 0;
 	if (!(md_ctx = EVP_MD_CTX_new())
 		|| !EVP_DigestInit_ex(md_ctx, md, NULL)
 		|| !EVP_DigestUpdate(md_ctx, idbits, sizeof(idbits))
@@ -259,6 +259,7 @@ int SM2_compute_id_digest(const EVP_MD *md, const char *id, size_t idlen,
 		ECerr(EC_F_SM2_COMPUTE_ID_DIGEST, ERR_R_EVP_LIB);
 		goto end;
 	}
+	sm3_hard = 1;
 
 	*outlen = len;
 	ret = 1;

@@ -1,0 +1,42 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+      "version": "2.0.0",
+      "configurations": [
+
+        {
+          "name": "debug",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/apps/gmssl",
+          //"args": ["sdf","-lib","${workspaceFolder}/apps/libsdf.so","-printdevinfo"],
+          //"args": ["s_client","-connect","127.0.0.1:443","-key","CS.key.pem","-cert","CS.cert.pem","-dkey","CE.key.pem","-dcert","CE.cert.pem","-CAfile","CA.cert.pem","-gmtls","-msg","-debug","-engine","sdf","-state",],
+          //"args": ["s_client","-connect","127.0.0.1:443","-key","CS.key.pem","-cert","CS.cert.pem","-dkey","CE.key.pem","-dcert","CE.cert.pem","-CAfile","CA.cert.pem","-gmtls",],
+          //"args": ["s_client","-connect","127.0.0.1:443","-key","CS.key.pem","-cert","CS.cert.pem","-dkey","CE.key.pem","-dcert","CE.cert.pem","-CAfile","CA.cert.pem","-gmtls","-msg","-debug","-state",],
+         //"args": ["s_server","-accept","443","-key","SS.key.pem","-cert","SS.cert.pem","-dkey","SE.key.pem","-dcert","SE.cert.pem","-CAfile","CA.cert.pem","-gmtls","-engine","sdf",],
+         "args": ["s_server","-accept","443","-key","SS.key.pem","-cert","SS.cert.pem","-dkey","SE.key.pem","-dcert","SE.cert.pem","-CAfile","CA.cert.pem","-gmtls","-state",],
+
+          //sudo gmssl s_server -accept 443 -key SS.key.pem -cert SS.cert.pem  -dkey SE.key.pem -dcert SE.cert.pem -CAfile CA.cert.pem  -gmtls -engine sdf
+
+          //sudo gmssl s_client -connect 127.0.0.1:443 -key CS.key.pem -cert CS.cert.pem -dkey CE.key.pem -dcert CE.cert.pem -CAfile CA.cert.pem  -gmtls -engine sdf
+          // -msg -debug –state
+
+          "stopAtEntry": true,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "setupCommands": [
+            {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+            }
+          ],
+          "preLaunchTask": "build",
+          "miDebuggerPath": "${workspaceFolder}/gdb"
+        }
+      ]
+    }
